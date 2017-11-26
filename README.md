@@ -7,16 +7,16 @@ MegaPhone is a lightweight framework to run self hosting REST services using Web
 
 This project was inheritate from the original Microphone with the intention to keep the development, improvement and fixes, because the actual project is unoperative and nuget packages outdated.
 
-MegaPhone.Core
+**MegaPhone.Core**
 [![NuGet](https://buildstats.info/nuget/Megaphone.Core)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.Core)
 
-MegaPhone.Etcd
+**MegaPhone.Etcd**
 [![NuGet](https://buildstats.info/nuget/Megaphone.Etcd)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.Etcd)
 
-MegaPhone.Nancy
+**MegaPhone.Nancy**
 [![NuGet](https://buildstats.info/nuget/Megaphone.Nancy)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.Nancy)
 
-MegaPhone.WebApi
+**MegaPhone.WebApi**
 [![NuGet](https://buildstats.info/nuget/Megaphone.WebApi)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.WebApi)
 
 [![Build Status](https://img.shields.io/appveyor/ci/thiagoloureiro/megaphone/master.svg)](https://ci.appveyor.com/project/thiagoloureiro/megaphone) 
