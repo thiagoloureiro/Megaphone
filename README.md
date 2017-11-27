@@ -17,6 +17,6 @@ This project was inheritate from the original Microphone with the intention to k
 [![NuGet](https://buildstats.info/nuget/Megaphone.Nancy)](http://www.nuget.org/packages/Megaphone.Nancy)
 
 **MegaPhone.WebApi**
-[![NuGet](https://buildstats.info/nuget/Megaphone.WebApi)](http://www.nuget.org/packages/WebApi)
+[![NuGet](https://buildstats.info/nuget/Megaphone.WebApi)](http://www.nuget.org/packages/Megaphone.WebApi)
 
 [![Build Status](https://img.shields.io/appveyor/ci/thiagoloureiro/megaphone/master.svg)](https://ci.appveyor.com/project/thiagoloureiro/megaphone) 
