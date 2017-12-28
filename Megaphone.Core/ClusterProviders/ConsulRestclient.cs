@@ -13,12 +13,16 @@ namespace Megaphone.Core.ClusterProviders
 {
     public class ConsulRestClient
     {
-        private readonly int consulPort = 8500;
+        private readonly int consulPort;
+        private readonly string consulHost;
 
         public ConsulRestClient()
         {
-            Int32.TryParse(ConfigurationManager.AppSettings["Consul:Port"], out consulPort);
+            int.TryParse(ConfigurationManager.AppSettings["Consul:Port"], out consulPort);
+            consulHost =  ConfigurationManager.AppSettings["Consul:Host"];
+
             consulPort = consulPort == 0 ? 8500 : consulPort;
+            consulHost = consulHost ?? "localhost";
         }
 
         public ConsulRestClient(int port)
@@ -50,7 +54,7 @@ namespace Megaphone.Core.ClusterProviders
 
                 var res =
                     await
-                        client.PutAsync($"http://localhost:{consulPort}/v1/agent/service/register", content)
+                        client.PutAsync($"http://{consulHost}:{consulPort}/v1/agent/service/register", content)
                             .ConfigureAwait(false);
                 if (res.StatusCode != HttpStatusCode.OK)
                 {
@@ -65,7 +69,7 @@ namespace Megaphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/health/service/" + serviceName)
+                        client.GetAsync($"http://{consulHost}:{consulPort}/v1/health/service/" + serviceName)
                             .ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -86,7 +90,7 @@ namespace Megaphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.GetAsync($"http://localhost:{consulPort}/v1/health/state/critical").ConfigureAwait(false);
+                        client.GetAsync($"http://{consulHost}:{consulPort}/v1/health/state/critical").ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     throw new Exception("Could not get service health");
@@ -103,7 +107,7 @@ namespace Megaphone.Core.ClusterProviders
             {
                 var response =
                     await
-                        client.PutAsync($"http://localhost:{consulPort}/v1/agent/service/deregister/" + serviceId, null)
+                        client.PutAsync($"http://{consulHost}:{consulPort}/v1/agent/service/deregister/" + serviceId, null)
                             .ConfigureAwait(false);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -121,7 +125,7 @@ namespace Megaphone.Core.ClusterProviders
 
                 var response =
                     await
-                        client.PutAsync($"http://localhost:{consulPort}/v1/kv/" + key, content).ConfigureAwait(false);
+                        client.PutAsync($"http://{consulHost}:{consulPort}/v1/kv/" + key, content).ConfigureAwait(false);
 
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
@@ -134,7 +138,7 @@ namespace Megaphone.Core.ClusterProviders
         {
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync($"http://localhost:{consulPort}/v1/kv/" + key).ConfigureAwait(false);
+                var response = await client.GetAsync($"http://{consulHost}:{consulPort}/v1/kv/" + key).ConfigureAwait(false);
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
