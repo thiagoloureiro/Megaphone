@@ -37,11 +37,18 @@ namespace Megaphone.Core
 
         public static void Bootstrap(IFrameworkProvider frameworkProvider, IClusterProvider clusterProvider, string serviceName, string version)
         {
-            _frameworkProvider = frameworkProvider;
-            var uri = _frameworkProvider.Start(serviceName, version);
-            var serviceId = serviceName + Guid.NewGuid();
-            _clusterProvider = clusterProvider;
-            _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
+            try
+            {
+                _frameworkProvider = frameworkProvider;
+                var uri = _frameworkProvider.Start(serviceName, version);
+                var serviceId = serviceName + Guid.NewGuid();
+                _clusterProvider = clusterProvider;
+                _clusterProvider.RegisterServiceAsync(serviceName, serviceId, version, uri).Wait();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }

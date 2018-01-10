@@ -3,6 +3,7 @@ using Megaphone.Core.ClusterProviders;
 using Megaphone.Nancy;
 using Nancy;
 using System;
+using System.Threading;
 
 namespace NancyFxServiceExample
 {
@@ -11,10 +12,15 @@ namespace NancyFxServiceExample
         private static void Main(string[] args)
         {
             Cluster.Bootstrap(new NancyProvider(), new ConsulProvider(useEbayFabio: false), "customers", "v1");
-
+            Thread.Sleep(5000);
+            DiscoverService();
             Console.ReadLine();
-            // var instance = Cluster.FindServiceInstanceAsync("customers").Result;
-            //  Console.WriteLine($"{instance.Address} {instance.Port}");
+        }
+
+        private static void DiscoverService()
+        {
+            var instance = Cluster.FindServiceInstanceAsync("customers").Result;
+            Console.WriteLine($"{instance.Address} {instance.Port}");
             Console.ReadLine();
         }
     }
