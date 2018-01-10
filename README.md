@@ -8,15 +8,15 @@ MegaPhone is a lightweight framework to run self hosting REST services using Web
 This project was inheritate from the original Microphone with the intention to keep the development, improvement and fixes, because the actual project is unoperative and nuget packages outdated.
 
 **MegaPhone.Core**
-[![NuGet](https://buildstats.info/nuget/Megaphone.Core)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.Core)
+[![NuGet](https://buildstats.info/nuget/Megaphone.Core)](http://www.nuget.org/packages/Megaphone.Core)
 
 **MegaPhone.Etcd**
-[![NuGet](https://buildstats.info/nuget/Megaphone.Etcd)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.Etcd)
+[![NuGet](https://buildstats.info/nuget/Megaphone.Etcd)](http://www.nuget.org/packages/Megaphone.Etcd)
 
 **MegaPhone.Nancy**
-[![NuGet](https://buildstats.info/nuget/Megaphone.Nancy)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.Nancy)
+[![NuGet](https://buildstats.info/nuget/Megaphone.Nancy)](http://www.nuget.org/packages/Megaphone.Nancy)
 
 **MegaPhone.WebApi**
-[![NuGet](https://buildstats.info/nuget/Megaphone.WebApi)](http://www.nuget.org/packages/WebImpact.WIFramework.Megaphone.WebApi)
+[![NuGet](https://buildstats.info/nuget/Megaphone.WebApi)](http://www.nuget.org/packages/Megaphone.WebApi)
 
 [![Build Status](https://img.shields.io/appveyor/ci/thiagoloureiro/megaphone/master.svg)](https://ci.appveyor.com/project/thiagoloureiro/megaphone) 

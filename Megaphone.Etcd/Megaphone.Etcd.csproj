@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="build.bat" />
     <None Include="Megaphone.Etcd.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
