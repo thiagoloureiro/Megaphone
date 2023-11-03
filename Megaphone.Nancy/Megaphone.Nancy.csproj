@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Nancy" Version="1.4.4" />
-    <PackageReference Include="Nancy.Hosting.Self" Version="1.4.1" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+    <PackageReference Include="Nancy.Hosting.Self" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

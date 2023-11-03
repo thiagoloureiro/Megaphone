@@ -29,7 +29,7 @@ namespace NancyFxServiceExample
     {
         public CustomerService() : base("/customers")
         {
-            Get["/"] = _ =>
+            Get("/", args =>
             {
                 var customer = new Customer
                 {
@@ -38,7 +38,7 @@ namespace NancyFxServiceExample
                 };
 
                 return Response.AsJson(customer);
-            };
+            });
         }
     }
 

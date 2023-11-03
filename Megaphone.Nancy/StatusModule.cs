@@ -7,11 +7,11 @@ namespace Megaphone.Nancy
     {
         public StatusModule()
         {
-            Get["/status"] = _ =>
+            Get("/status", args =>
             {
                 Logger.Information("OK");
                 return "ok";
-            };
+            });
         }        
     }
 }
